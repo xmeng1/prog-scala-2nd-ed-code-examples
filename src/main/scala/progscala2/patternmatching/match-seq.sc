@@ -10,7 +10,9 @@ val nonEmptyMap    = Map("one" -> 1, "two" -> 2, "three" -> 3)       // <4>
 val emptyMap       = Map.empty[String,Int]
 
 def seqToString[T](seq: Seq[T]): String = seq match {                // <5>
-  case head +: tail => s"$head +: " + seqToString(tail)              // <6>
+  case head +: tail =>
+      println(s"$head +: " + tail)
+      s"$head +: " + seqToString(tail) // <6>
   case Nil => "Nil"                                                  // <7>
 }
 
